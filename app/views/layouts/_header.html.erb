@@ -1,0 +1,33 @@
+<!-- Fixed navbar -->
+    <nav class="navbar navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+        </div>
+        <div id="navbar" class="navbar-collapse collapse navbar-responsive-collapse">
+          <div class="header-inner"
+             <a id="header-logo" class="navbar-brand">
+                <%= image_tag (""), class: "header_image pull-left" %>
+          </div>
+                <a class="navbar-brand" href="/leagues">MultiLevel</a>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="<%= header_active("home", "index") %>"><%= link_to "Home", root_path %></li>
+            <% if admin_signed_in? %>
+            <li class="<%= header_active("admins", "edit") %>"><%= link_to "Profile", edit_admin_path(id: current_admin.id) %></li>
+            <li><%= link_to "#{current_user.full_name} (Sign Out!)", destroy_admin_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Sign In", new_admin_session_path %></li>
+            <% end %> 
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
